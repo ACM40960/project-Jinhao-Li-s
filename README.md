@@ -1,7 +1,20 @@
-# 基于 Tenerflow 的 Cnn 车牌识别模型 
+# 基于 Tensorflow 的 CNN 车牌识别模型 
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+![Python](https://img.shields.io/badge/python-%203.9.13-blue)
+![Tensorflow](https://img.shields.io/badge/tensorflow--macos-%20%202.9.2-orange)
+![numpy](https://img.shields.io/badge/numpy%20%20-%20%201.23.1-green)
+
+<p align="center">
+通过自动生成随机车牌来训练CNN神经网络模型，来对真实的车牌号图片继续 
+<b>backend</b> (Golang), 
+<b>frontend</b> (JavaScript, TypeScript)<br/>and 
+<b>deploy automation</b> (Ansible, Docker) by running one CLI command.
+<br/><br/>Focus on <b>writing</b> code and <b>thinking</b> of business-logic! The CLI will take care of the rest.
+
+</p>
 
 <!-- Add buttons here -->
-Python 3.9.13
 <!-- Describe your project in brief -->
 
 <!-- The project title should be self explanotory and try not to make it a mouthful. (Although exceptions exist- **awesome-readme-writing-guide-for-open-source-projects** - would have been a cool name)
