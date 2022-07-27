@@ -1,12 +1,7 @@
-# project-Jinhao-Li-s
-project-lijinhaodegit created by GitHub Classroom
-
-<!-- Add banner here -->
-
-# Project Title
+# 基于 Tenerflow 的 Cnn 车牌识别模型 
 
 <!-- Add buttons here -->
-
+Python 3.9.13
 <!-- Describe your project in brief -->
 
 <!-- The project title should be self explanotory and try not to make it a mouthful. (Although exceptions exist- **awesome-readme-writing-guide-for-open-source-projects** - would have been a cool name)
