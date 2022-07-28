@@ -1,6 +1,8 @@
 # 基于 Tensorflow 的 CNN 车牌识别模型 
 
 
+![Random GIF](readme photo/GIF of model.gif）
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <p align="center">
 使用随机生成的车牌图片来训练CNN模型，使模型对车牌号图片具有较高的识别精度。<br/>
