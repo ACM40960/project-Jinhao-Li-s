@@ -28,14 +28,10 @@
 后五个字符由英文字母和数字组合而成，字母是24个大写字母（除去 I 和 O）的组合，数字用＂０-９＂之间的数字表示。
 <!-- Add a demo for your project -->
 
-<!-- After you have written about your project, it is a good idea to have a demo/preview(**video/gif/screenshots** are good options) of your project so that people can know what to expect in your project. You could also add the demo in the previous section with the product description.
-Here is a random GIF as a placeholder.
-![Random GIF](https://media.giphy.com/media/ZVik7pBtu9dNS/giphy.gif) -->
+<!-- After you have written about your project, it is a good idea to have a demo/preview(**video/gif/screenshots** are good options) of your project so that people can know what to expect in your project. You could also add the demo in the previous section with the product description.-->
 
 # Table of contents
-# 安装准备
-## python 3.9.13
-## Mac os M1 安装Tensorflow
+
 <!-- After you have introduced your project, it is a good idea to add a **Table of contents** or **TOC** as **cool** people say it. This would make it easier for people to navigate through your README and find exactly what they are looking for.
 Here is a sample TOC(*wow! such cool!*) that is actually the TOC for this README. -->
 
@@ -52,8 +48,14 @@ Here is a sample TOC(*wow! such cool!*) that is actually the TOC for this README
 - [Footer](#footer)
 
 # Installation
-[(Back to top)](#table-of-contents)
 
+![Random GIF](https://media.giphy.com/media/ZVik7pBtu9dNS/giphy.gif) 
+# 安装准备
+## python 3.9.13
+## Anaconda
+## Jupytor notebook
+## Mac os M1 安装Tensorflow
+[(Back to top)](#table-of-contents)
 <!-- *You might have noticed the **Back to top** button(if not, please notice, it's right there!). This is a good idea because it makes your README **easy to navigate.*** 
 The first one should be how to install(how to generally use your project or set-up for editing in their machine).
 This should give the users a concrete idea with instructions on how they can use your project repo with all the steps.
