@@ -1,46 +1,28 @@
 # 基于 Tensorflow 的 CNN 车牌识别模型 
 
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-![Python](https://img.shields.io/badge/python-%203.9.13-blue)
-![Tensorflow](https://img.shields.io/badge/tensorflow--macos-%20%202.9.2-orange)
-![numpy](https://img.shields.io/badge/numpy%20%20-%20%201.23.1-green)
-
 <p align="center">
-通过自动生成随机车牌来训练CNN神经网络模型，来对真实的车牌号图片继续 
-<b>backend</b> (Golang), 
-<b>frontend</b> (JavaScript, TypeScript)<br/>and 
-<b>deploy automation</b> (Ansible, Docker) by running one CLI command.
-<br/><br/>Focus on <b>writing</b> code and <b>thinking</b> of business-logic! The CLI will take care of the rest.
-
+使用随机生成的车牌图片来训练CNN模型，使模型对车牌号图片具有较高的识别精度。<br/>
+对于一些非高清摄像头所拍摄的车牌图片，由于图片中<b>噪声</b>的影响，分割车牌字符变得很难。<br/>
+本模型采用的是<b>同时</b>训练七个字符，七个字符使用<b>单独的loss函数</b>进行训练。<br/>
 </p>
 
-<!-- Add buttons here -->
-<!-- Describe your project in brief -->
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    
+![Python](https://img.shields.io/badge/python-%203.9.13-blue)
+![Jupyter](https://img.shields.io/badge/Jupyter-6.4.11-critical)
+![Tensorflow](https://img.shields.io/badge/tensorflow--macos-%20%202.9.2-orange)
+![numpy](https://img.shields.io/badge/numpy%20%20-%20%201.23.1-green)
+![openCV](https://img.shields.io/badge/openCV-4.6.0-lightgrey)
 
-<!-- The project title should be self explanotory and try not to make it a mouthful. (Although exceptions exist- **awesome-readme-writing-guide-for-open-source-projects** - would have been a cool name)
-Add a cover/banner image for your README. **Why?** Because it easily **grabs people's attention** and it **looks cool**(*duh!obviously!*).
-The best dimensions for the banner is **1280x650px**. You could also use this for social preview of your repo.
-I personally use [**Canva**](https://www.canva.com/) for creating the banner images. All the basic stuff is **free**(*you won't need the pro version in most cases*).
-There are endless badges that you could use in your projects. And they do depend on the project. Some of the ones that I commonly use in every projects are given below. 
-I use [**Shields IO**](https://shields.io/) for making badges. It is a simple and easy to use tool that you can use for almost all your badge cravings. -->
 
-<!-- Some badges that you could use -->
+## 中国车牌介绍
 
-<!-- ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/navendu-pottekkat/awesome-readme?include_prereleases)
-: This badge shows the version of the current release.
-![GitHub last commit](https://img.shields.io/github/last-commit/navendu-pottekkat/awesome-readme)
-: I think it is self-explanatory. This gives people an idea about how the project is being maintained.
-![GitHub issues](https://img.shields.io/github/issues-raw/navendu-pottekkat/awesome-readme)
-: This is a dynamic badge from [**Shields IO**](https://shields.io/) that tracks issues in your project and gets updated automatically. It gives the user an idea about the issues and they can just click the badge to view the issues.
-![GitHub pull requests](https://img.shields.io/github/issues-pr/navendu-pottekkat/awesome-readme)
-: This is also a dynamic badge that tracks pull requests. This notifies the maintainers of the project when a new pull request comes.
-![GitHub All Releases](https://img.shields.io/github/downloads/navendu-pottekkat/awesome-readme/total): If you are not like me and your project gets a lot of downloads(*I envy you*) then you should have a badge that shows the number of downloads! This lets others know how **Awesome** your project is and is worth contributing to.
-![GitHub](https://img.shields.io/github/license/navendu-pottekkat/awesome-readme)
-: This shows what kind of open-source license your project uses. This is good idea as it lets people know how they can use your project for themselves.
-![Tweet](https://img.shields.io/twitter/url?style=flat-square&logo=twitter&url=https%3A%2F%2Fnavendu.me%2Fnsfw-filter%2Findex.html): This is not essential but it is a cool way to let others know about your project! Clicking this button automatically opens twitter and writes a tweet about your project and link to it. All the user has to do is to click tweet. Isn't that neat? -->
 
-# Demo-Preview
-
+中国车牌由七个字符组成，第一个字符为中文，代表中国31个省份简称。
+第二个字符代表中国某省的城市代号，为24个英文字母中的一个。
+后五个字符由英文字母和数字组合而成，字母是24个大写字母（除去 I 和 O）的组合，数字用＂０-９＂之间的数字表示。
 <!-- Add a demo for your project -->
 
 <!-- After you have written about your project, it is a good idea to have a demo/preview(**video/gif/screenshots** are good options) of your project so that people can know what to expect in your project. You could also add the demo in the previous section with the product description.
