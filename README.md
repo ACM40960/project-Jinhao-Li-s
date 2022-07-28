@@ -1,4 +1,8 @@
-# 基于 Tensorflow 的 CNN 车牌识别模型 
+# CNN China license plate recognition model based on Tensorflow
+
+<h1 align="center">
+  <img alt="cover" src="./readme photo/cover.png"/><br/>
+</h1>
 
 ![gif](https://media.giphy.com/media/jNMrGhfwlGGIdUTcji/giphy.gif)
 
