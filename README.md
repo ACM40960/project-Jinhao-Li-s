@@ -1,7 +1,6 @@
 # 基于 Tensorflow 的 CNN 车牌识别模型 
 
-
-![Random GIF](readme photo/GIF of model.gif）
+![gif](https://media.giphy.com/media/jNMrGhfwlGGIdUTcji/giphy.gif)
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <p align="center">
