@@ -1,4 +1,4 @@
-# CNN China license plate recognition model based on Tensorflow
+<!-- # CNN China license plate recognition model based on Tensorflow -->
 
 <h1 align="center">
   <img alt="cover" src="./readme photo/cover.png"/><br/>
