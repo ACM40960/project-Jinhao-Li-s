@@ -18,7 +18,10 @@
 
 
 ## 中国车牌介绍
-![](./readme photo/20191009090652976.jpg)
+<h1 align="center">
+  <img alt="The license plate images" src="./readme photo/20191009090652976.jpg"/><br/>
+</h1>
+
 
 中国车牌由七个字符组成，第一个字符为中文，代表中国31个省份简称。
 第二个字符代表中国某省的城市代号，为24个英文字母中的一个。
@@ -30,7 +33,9 @@ Here is a random GIF as a placeholder.
 ![Random GIF](https://media.giphy.com/media/ZVik7pBtu9dNS/giphy.gif) -->
 
 # Table of contents
-
+# 安装准备
+## python 3.9.13
+## Mac os M1 安装Tensorflow
 <!-- After you have introduced your project, it is a good idea to add a **Table of contents** or **TOC** as **cool** people say it. This would make it easier for people to navigate through your README and find exactly what they are looking for.
 Here is a sample TOC(*wow! such cool!*) that is actually the TOC for this README. -->
 
