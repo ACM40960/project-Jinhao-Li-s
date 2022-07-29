@@ -4,45 +4,37 @@
   <img alt="cover" src="./readme photo/cover.png"/><br/>
 </h1>
 
-![gif](https://media.giphy.com/media/jNMrGhfwlGGIdUTcji/giphy.gif)
-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <p align="center">
 使用随机生成的车牌图片来训练CNN模型，使模型对车牌号图片具有较高的识别精度。<br/>
 对于一些非高清摄像头所拍摄的车牌图片，由于图片中<b>噪声</b>的影响，分割车牌字符变得很难。<br/>
-本模型采用的是<b>同时</b>训练七个字符，七个字符使用<b>单独的loss函数</b>进行训练。<br/>
+本模型采用的是<b>同时</b>训练车牌中七个字符，七个字符使用<b>单独的loss函数</b>进行训练。<br/>
+
+</p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<p align="center">    
+  <img src="https://img.shields.io/badge/python-%203.9.13-blue" alt="Python" />
+  <img src="https://img.shields.io/badge/Jupyter-6.4.11-critical" alt="Jupytor" />
+  <img src="https://img.shields.io/badge/tensorflow--macos-%20%202.9.2-orange" alt="Tensorflow" />
+  <img src="https://img.shields.io/badge/numpy%20%20-%20%201.23.1-green" alt="Numpy" />
+  <img src="https://img.shields.io/badge/openCV-4.6.0-lightgrey" alt="OpenCV" />
+ </p>   
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<p align="center">   
+  <img src="https://media.giphy.com/media/jNMrGhfwlGGIdUTcji/giphy.gif" alt="GIF" />
 </p>
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    
-![Python](https://img.shields.io/badge/python-%203.9.13-blue)
-![Jupyter](https://img.shields.io/badge/Jupyter-6.4.11-critical)
-![Tensorflow](https://img.shields.io/badge/tensorflow--macos-%20%202.9.2-orange)
-![numpy](https://img.shields.io/badge/numpy%20%20-%20%201.23.1-green)
-![openCV](https://img.shields.io/badge/openCV-4.6.0-lightgrey)
 
 
-## 中国车牌介绍
-<h1 align="center">
-  <img alt="The license plate images" src="./readme photo/20191009090652976.jpg"/><br/>
-</h1>
-
-
-中国车牌由七个字符组成，第一个字符为中文，代表中国31个省份简称。
-第二个字符代表中国某省的城市代号，为24个英文字母中的一个。
-后五个字符由英文字母和数字组合而成，字母是24个大写字母（除去 I 和 O）的组合，数字用＂０-９＂之间的数字表示。
-<!-- Add a demo for your project -->
-
-<!-- After you have written about your project, it is a good idea to have a demo/preview(**video/gif/screenshots** are good options) of your project so that people can know what to expect in your project. You could also add the demo in the previous section with the product description.-->
 
 # Table of contents
-
-<!-- After you have introduced your project, it is a good idea to add a **Table of contents** or **TOC** as **cool** people say it. This would make it easier for people to navigate through your README and find exactly what they are looking for.
-Here is a sample TOC(*wow! such cool!*) that is actually the TOC for this README. -->
 
 - [Project Title](#project-title)
 - [Demo-Preview](#demo-preview)
 - [Table of contents](#table-of-contents)
+- [Introduction of Chinese license plates](#Introduction-of-Chinese-license-plates)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Development](#development)
@@ -52,25 +44,45 @@ Here is a sample TOC(*wow! such cool!*) that is actually the TOC for this README
 - [License](#license)
 - [Footer](#footer)
 
-# Installation
 
+# Introduction of Chinese license plates
+<h1 align="center">
+  <img alt="The license plate images" src="./readme photo/20191009090652976.jpg"/><br/>
+</h1>
+
+中国车牌由七个字符组成，第一个字符为中文，代表中国31个省份简称。
+第二个字符代表中国某省的城市代号，为24个英文字母中的一个。
+后五个字符由英文字母和数字组合而成，字母是24个大写字母（除去 I 和 O）的组合，数字用＂０-９＂之间的数字表示。
+
+[(Back to top)](#table-of-contents)
+
+# Installation
 ![Random GIF](https://media.giphy.com/media/ZVik7pBtu9dNS/giphy.gif) 
-# 安装准备
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
 ## python 3.9.13
+1.首先，从Python网站下载安装包。https://www.python.org/downloads/
+它会自动检测您的操作系统并显示一个大按钮，用于在您的 Mac 上下载最新版本的 Python 安装程序,本项目使用Python3.9.13。
+<h1 align="center">
+  <img alt="python" src="./readme photo/python.png"/><br/>
+</h1>
+
+2. 下载完成后，双击包开始安装Python。安装程序将引导您完成安装，在大多数情况下，默认设置运行良好，因此请像 macOS 上的其他应用程序一样安装它。你可能还需要输入你的 Mac 密码，让它知道你同意安装 Python。
+<h1 align="center">
+  <img alt="python" src="./readme photo/inspython.png"/><br/>
+</h1>
+
+3. 在终端中检查Python。
+<h1 align="center">
+  <img alt="python" src="./readme photo/verpython.png"/><br/>
+</h1>
+
 ## Anaconda
 ## Jupytor notebook
 ## Mac os M1 安装Tensorflow
 [(Back to top)](#table-of-contents)
-<!-- *You might have noticed the **Back to top** button(if not, please notice, it's right there!). This is a good idea because it makes your README **easy to navigate.*** 
-The first one should be how to install(how to generally use your project or set-up for editing in their machine).
-This should give the users a concrete idea with instructions on how they can use your project repo with all the steps.
-Following this steps, **they should be able to run this in their device.**
-A method I use is after completing the README, I go through the instructions from scratch and check if it is working. -->
 
-<!-- Here is a sample instruction:
-To use this project, first clone the repo on your device using the command below:
-```git init```
-```git clone https://github.com/navendu-pottekkat/nsfw-filter.git``` -->
+
 
 # Usage
 [(Back to top)](#table-of-contents)
