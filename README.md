@@ -136,7 +136,7 @@ Province：("皖", "沪", "津", "渝", "冀", "晋", "蒙", "辽", "吉", "黑"
 └─project
     ├─ data              ---->字体文件
     ├─input_data.py      ---->
-    ├─genplate.py  
+    ├─genplate.py        ---->车牌数据集
     ├─model.py
     ├─Testmodel.ipynb
     ├─runmodel.ipynb     ----->验证集
@@ -158,12 +158,19 @@ Province：("皖", "沪", "津", "渝", "冀", "晋", "蒙", "辽", "吉", "黑"
 [(Back to top)](#table-of-contents)
 
 # Development
+1.生成车牌数据集   genplate.py
+2.数据集导入      input_data.py
+3.构建CNN模型     model.py
+4.模型训练        runmodel.ipynb
+5.识别单张车牌     Testmodel.ipynb
+
 [(Back to top)](#table-of-contents)
 
 <!-- This is the place where you give instructions to developers on how to modify the code.
 You could give **instructions in depth** of **how the code works** and how everything is put together.
 You could also give specific instructions to how they can setup their development environment.
-Ideally, you should keep the README simple. If you need to add more complex explanations, use a wiki. Check out [this wiki](https://github.com/navendu-pottekkat/nsfw-filter/wiki) for inspiration. -->
+Ideally, you should keep the README simple. If you need to add more complex explanations, use a wiki. -->
+Check out [this wiki](https://github.com/navendu-pottekkat/nsfw-filter/wiki) for inspiration. 
 
 # Contribute
 [(Back to top)](#table-of-contents)
