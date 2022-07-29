@@ -158,11 +158,39 @@ Province：("皖", "沪", "津", "渝", "冀", "晋", "蒙", "辽", "吉", "黑"
 [(Back to top)](#table-of-contents)
 
 # Development
-1.生成车牌数据集   genplate.py
-2.数据集导入      input_data.py
-3.构建CNN模型     model.py
-4.模型训练        runmodel.ipynb
-5.识别单张车牌     Testmodel.ipynb
+
+## Important dependencies to install before running the code.
+
+	+ matplotlib (3.5.1)
+	+ numpy (1.23.1)
+	+ opencv-python (4.6.0.66)
+	+ pandas (0.24.0)
+	+ tensorboard (2.9.1)
+	+ tensorflow-macos (2.9.2)
+	+ tensorflow-estimator (2.9.0)
+  
+## 1.生成车牌数据集   genplate.py
+Font file: Chinese 'Platech.ttf', English and digital 'Platechar.ttf'
+Background: file 'NoPlates'. Which from a cropped image of a vehicle without a license plate
+License plate (blue background) : template.bmp
+The noise of image：smu2.jpg
+After the license plate is generated, save it to the 'plate' folder as shown in the following example:
+
+<h1 align="center">
+  <img alt="plate" src="./readme photo/python.png" width="60%" height="60%"/><br/>
+</h1>
+
+
+通过python的第三方库PIL中的Image，ImageFont，ImageDraw模块，使用font文件中的字体文件来随机生成车牌号，并且添加在images文件夹中的车牌背景上。使用images文件中的smu2.jpg来为生成的车牌添加模糊噪声。
+生成的车牌图像尺寸尽量不要超过300，本次尺寸选取：272 * 72
+生成车牌所需文件：
+
+
+
+## 2.数据集导入      input_data.py
+## 3.构建CNN模型     model.py
+## 4.模型训练        runmodel.ipynb
+## 5.识别单张车牌     Testmodel.ipynb
 
 [(Back to top)](#table-of-contents)
 
