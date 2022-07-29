@@ -170,25 +170,100 @@ Province：("皖", "沪", "津", "渝", "冀", "晋", "蒙", "辽", "吉", "黑"
 	+ tensorflow-estimator (2.9.0)
   
 ## 1.生成车牌数据集   genplate.py
-Font file: Chinese 'Platech.ttf', English and digital 'Platechar.ttf'
-Background: file 'NoPlates'. Which from a cropped image of a vehicle without a license plate
-License plate (blue background) : template.bmp
-The noise of image：smu2.jpg
-After the license plate is generated, save it to the 'plate' folder as shown in the following example:
+<p >
+生成车牌所需文件：<br/>
+<b>Font file:</b> Chinese 'Platech.ttf', English and digital 'Platechar.ttf'. <br/>
+<b>Background:</b> file 'NoPlates'. Which from a cropped image of a vehicle without a license plate. <br/>
+<b>License plate (blue background) :</b> template.bmp. <br/>
+<b>The noise of image：</b>smu2.jpg. <br/>
 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+Through the Python third-party library PIL Image, ImageFont, ImageDraw module, use the font file in the font file to randomly generate the license plate number, and add it to the license plate background in the images folder.<br/>
+
+加载字体，车牌背景和噪声图片
+```python	
+class GenPlate:
+    def __init__(self, fontCh, fontEng, NoPlates):
+        #.truetype() Load the TrueType or OpenType font file and create a font object
+        self.fontC = ImageFont.truetype(fontCh, 43, 0)
+        self.fontE = ImageFont.truetype(fontEng, 60, 0)
+        self.img = np.array(Image.new("RGB", (226, 70),(255, 255, 255)))
+        # template.bmp:Background of license plate
+        self.bg  = cv.resize(cv.imread("./data/images/template.bmp"), (226, 70))
+        # smu2.jpg:Blurred image
+        self.smu = cv.imread("./data/images/smu2.jpg")   
+        self.noplates_path = []
+        for parent, parent_folder, filenames in os.walk(NoPlates):
+            for filename in filenames:
+                path = parent + "/" + filename
+                self.noplates_path.append(path)	
+```
+随机生成车牌号（包括第一位汉字位，第二位字母位，和剩余5位）
+```python
+	#Generate license plate numbers
+    def draw(self, val):
+        offset = 2
+        #GenCh() Generating Chinese characters
+        self.img[0:70, offset+8:offset+8+23] = GenCh(self.fontC, val[0])
+        #GenCh1 Generating English characters
+        self.img[0:70, offset+8+23+6:offset+8+23+6+23] = GenCh1(self.fontE, val[1])
+        #GenCh1 Generate the remaining 5 digits
+        for i in range(5):
+            base = offset + 8 + 23 + 6 + 23 + 17 + i * 23 + i * 6
+            self.img[0:70, base:base+23] = GenCh1(self.fontE, val[i+2])
+        return self.img
+```
+对生成的车牌号图片添加噪声（包括畸变和各种噪声）来模拟实际情况中的车牌截图。
+```python	
+def generate(self, text):
+        if len(text) == 7:
+            #Perform binary operations on each pixel of the image
+            fg = self.draw(text)   
+            fg = cv.bitwise_not(fg)
+            com = cv.bitwise_or(fg, self.bg)
+            #Adding perspective distortion
+            com = rot(com, r(60)-30, com.shape,30)   
+            #Add radiation distortion
+            com = rotRandrom(com, 10, (com.shape[1], com.shape[0]))  
+            # Add saturation light noise
+            com = tfactor(com)
+            #Add noise from the natural environment
+            com = random_envirment(com, self.noplates_path)
+            # Add Gaussian blur
+            com = AddGauss(com, 1+r(4))
+            #Add Gaussian noise
+            com = addNoise(com)
+            return com
+```	
+
+生成的车牌图像尺寸选取：272 * 72<br/>
+
+<b>After the license plate is generated, save it to the 'plate' folder as shown in the following example:</b>
 <h1 align="center">
-  <img alt="plate" src="./readme photo/python.png" width="60%" height="60%"/><br/>
+  <img alt="plate" src="./readme photo/plate.png" width="60%" height="60%"/><br/>
 </h1>
-
-
-通过python的第三方库PIL中的Image，ImageFont，ImageDraw模块，使用font文件中的字体文件来随机生成车牌号，并且添加在images文件夹中的车牌背景上。使用images文件中的smu2.jpg来为生成的车牌添加模糊噪声。
-生成的车牌图像尺寸尽量不要超过300，本次尺寸选取：272 * 72
-生成车牌所需文件：
+</p>
 
 
 
 ## 2.数据集导入      input_data.py
+测试产生的车牌图片和标签
+```python
+O = OCRIter(2, 72, 272)
+img, lbl = O.iter()
+for im in img:
+    plt.imshow(im, cmap='gray')
+    plt.show()
+print(lbl)
+```
+<h1 align="center">
+  <img alt="inputtest" src="./readme photo/inputtest.png" width="60%" height="60%"/><br/>
+</h1>
+
 ## 3.构建CNN模型     model.py
+6卷积层+3池化层+1全连接层
+
 ## 4.模型训练        runmodel.ipynb
 ## 5.识别单张车牌     Testmodel.ipynb
 
