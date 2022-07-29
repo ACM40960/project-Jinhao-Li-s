@@ -80,23 +80,24 @@
 ## Anaconda
 1.Download the graphical macOS installer for your version of Python.https://www.anaconda.com/products/distribution#macos
 <h1 align="center">
-  <img alt="Anaconda" src="./readme photo/anaconda.png" width="60%" height="60%"/><br/>
+  <img alt="pageAnaconda" src="./readme photo/pageanaconda.png" width="20%" height="20%"/><br/>
+  <img alt="Anaconda" src="./readme photo/anaconda.png" width="20%" height="20%"/><br/>
 </h1>
 
 2.Double-click the downloaded file and click Continue to start the installation.
 
 3.安装成功界面
 <h1 align="center">
-  <img alt="insanaconda" src="./readme photo/insanaconda.png" width="20%" height="20%"/><br/>
+  <img alt="insanaconda" src="./readme photo/insanaconda.png" width="40%" height="40%"/><br/>
 </h1>
 4.打开Anaconda-Navigator，选择你所需的环境，安装Jupytor notebook.
 <h1 align="center">
-  <img alt="showanaconda" src="./readme photo/showanaconda.png" width="20%" height="20%"/><br/>
+  <img alt="showanaconda" src="./readme photo/showanaconda.png" width="40%" height="40%"/><br/>
 </h1>
 
 ## Jupytor notebook
 <h1 align="center">
-  <img alt="Jupytor" src="./readme photo/screenshot.png" width="20%" height="20%"/><br/>
+  <img alt="Jupytor" src="./readme photo/screenshot.png" width="40%" height="40%"/><br/>
 </h1>
 
 
