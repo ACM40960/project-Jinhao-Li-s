@@ -69,7 +69,7 @@
 
 2. 下载完成后，双击包开始安装Python。安装程序将引导您完成安装，在大多数情况下，默认设置运行良好，因此请像 macOS 上的其他应用程序一样安装它。你可能还需要输入你的 Mac 密码，让它知道你同意安装 Python。
 <h1 align="center">
-  <img alt="python" src="./readme photo/inspython.png" width="60%" height="60%"/><br/>
+  <img alt="python" src="./readme photo/inspython.png" width="30%" height="30%"/><br/>
 </h1>
 
 3. 在终端中检查Python。
@@ -94,19 +94,26 @@
 
 3.安装成功界面
 <h1 align="center">
-  <img alt="insanaconda" src="./readme photo/insanaconda.jpg" width="40%" height="40%"/><br/>
+  <img alt="insanaconda" src="./readme photo/insanaconda.png" width="40%" height="40%"/><br/>
 </h1>
 4.打开Anaconda-Navigator，选择你所需的环境，安装Jupytor notebook.
 <h1 align="center">
-  <img alt="showanaconda" src="./readme photo/showanaconda.png" width="40%" height="40%"/><br/>
+  <img alt="showanaconda" src="./readme photo/showanaconda.jpg" width="50%" height="50%"/><br/>
 </h1>
 
 ## Jupytor notebook
-安装yupyter notebook
-<h1 align="center">
-  <img alt="Jupytor" src="./readme photo/screenshot.png" width="40%" height="40%"/><br/>
-</h1>
+点击install安装yupyter notebook，安装完成后点击launch即可进入项目列表。
 
+<table>
+  <tr>
+    <td vlign="center">
+      <img src="./readme photo/screenshot.png" alt="screenshot" width="30%" height="30%">
+    </td>
+    <td vlign="center">
+      <img src="./readme photo/showpage.png" alt="showpage" width="80%" height="80%">
+    </td>
+  </tr>
+</table>
 
 ## Mac os M1 安装Tensorflow
 对于Macos M1芯片无法使用Tensorflow的问题，有以下几个解决办法
