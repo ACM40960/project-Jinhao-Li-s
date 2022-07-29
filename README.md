@@ -64,21 +64,44 @@
 1.首先，从Python网站下载安装包。https://www.python.org/downloads/
 它会自动检测您的操作系统并显示一个大按钮，用于在您的 Mac 上下载最新版本的 Python 安装程序,本项目使用Python3.9.13。
 <h1 align="center">
-  <img alt="python" src="./readme photo/python.png"/><br/>
+  <img alt="python" src="./readme photo/python.png" width="60%" height="60%"/><br/>
 </h1>
 
 2. 下载完成后，双击包开始安装Python。安装程序将引导您完成安装，在大多数情况下，默认设置运行良好，因此请像 macOS 上的其他应用程序一样安装它。你可能还需要输入你的 Mac 密码，让它知道你同意安装 Python。
 <h1 align="center">
-  <img alt="python" src="./readme photo/inspython.png"/><br/>
+  <img alt="python" src="./readme photo/inspython.png" width="60%" height="60%"/><br/>
 </h1>
 
 3. 在终端中检查Python。
 <h1 align="center">
-  <img alt="python" src="./readme photo/verpython.png"/><br/>
+  <img alt="python" src="./readme photo/verpython.png" width="60%" height="60%"/><br/>
 </h1>
 
 ## Anaconda
+1.Download the graphical macOS installer for your version of Python.https://www.anaconda.com/products/distribution#macos
+<h1 align="center">
+  <img alt="Anaconda" src="./readme photo/anaconda.png" width="60%" height="60%"/><br/>
+</h1>
+
+2.Double-click the downloaded file and click Continue to start the installation.
+
+3.安装成功界面
+<h1 align="center">
+  <img alt="insanaconda" src="./readme photo/insanaconda.png" width="20%" height="20%"/><br/>
+</h1>
+4.打开Anaconda-Navigator，选择你所需的环境，安装Jupytor notebook.
+<h1 align="center">
+  <img alt="showanaconda" src="./readme photo/showanaconda.png" width="20%" height="20%"/><br/>
+</h1>
+
 ## Jupytor notebook
+<h1 align="center">
+  <img alt="Jupytor" src="./readme photo/screenshot.png" width="20%" height="20%"/><br/>
+</h1>
+
+
+
+
 ## Mac os M1 安装Tensorflow
 [(Back to top)](#table-of-contents)
 
