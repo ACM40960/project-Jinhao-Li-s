@@ -36,7 +36,7 @@
 - [Table of contents](#table-of-contents)
 - [Introduction of Chinese license plates](#Introduction-of-Chinese-license-plates)
 - [Installation](#installation)
-- [Usage](#usage)
+- [Project File Directory](#Project-File-Directory)
 - [Development](#development)
 - [Contribute](#contribute)
     - [Sponsor](#sponsor)
@@ -50,8 +50,14 @@
   <img alt="The license plate images" src="./readme photo/20191009090652976.jpg"/><br/>
 </h1>
 
-中国车牌由七个字符组成，第一个字符为中文，代表中国31个省份简称。
-第二个字符代表中国某省的城市代号，为24个英文字母中的一个。
+中国车牌由七个字符组成，第一个字符为中文，代表中国31个省份简称。&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+Province：("皖", "沪", "津", "渝", "冀", "晋", "蒙", "辽", "吉", "黑", "苏", "浙", "京", "闽", "赣", "鲁", "豫", "鄂", "湘", "粤", "桂", "琼", "川", "贵", "云", "藏", "陕", "甘", "青", "宁", "新")
+
+第二个字符代表中国某省的城市代号，为24个英文字母中的一个。&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+城市代号：("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+
 后五个字符由英文字母和数字组合而成，字母是24个大写字母（除去 I 和 O）的组合，数字用＂０-９＂之间的数字表示。
 
 [(Back to top)](#table-of-contents)
@@ -107,7 +113,7 @@
 <table>
   <tr>
     <td vlign="center">
-      <img src="./readme photo/screenshot.png" alt="screenshot" width="30%" height="30%">
+      <img src="./readme photo/screenshot.png" alt="screenshot" width="150%" height="150%">
     </td>
     <td vlign="center">
       <img src="./readme photo/showpage.png" alt="showpage" width="80%" height="80%">
@@ -125,10 +131,31 @@
 
 
 
-# Usage
-[(Back to top)](#table-of-contents)
+# Project File Directory:
+```
+└─project
+    ├─ data              ---->字体文件
+    ├─input_data.py      ---->
+    ├─genplate.py  
+    ├─model.py
+    ├─Testmodel.ipynb
+    ├─runmodel.ipynb     ----->验证集
+    ├─logs
+    ├─copy
+    ├─readme photo
+    └─saved_model
+```
 
-<!-- This is optional and it is used to give the user info on how to use the project after installation. This could be added in the Installation section also. -->
+```
+└─data
+    ├─font         ---->字体文件
+    ├─images       ---->噪声背景图片
+    ├─NoPlates     ---->车牌背景图片
+    └─plate        ---->生成车牌图片
+        └─label.txt
+```
+
+[(Back to top)](#table-of-contents)
 
 # Development
 [(Back to top)](#table-of-contents)
