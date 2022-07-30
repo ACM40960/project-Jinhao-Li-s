@@ -6,9 +6,9 @@
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <p align="center">
-使用随机生成的车牌图片来训练CNN模型，使模型对车牌号图片具有较高的识别精度。<br/>
-对于一些非高清摄像头所拍摄的车牌图片，由于图片中<b>噪声</b>的影响，分割车牌字符变得很难。<br/>
 本模型采用的是<b>同时</b>训练车牌中七个字符，七个字符使用<b>单独的loss函数</b>进行训练。<br/>
+对于一些非高清摄像头所拍摄的车牌图片，由于图片中<b>环境噪声和图片畸变</b>的影响，分割车牌的字符变得很难。<br/>
+本模型通过随机生成的车牌号码图片来训练CNN，使模型对模糊车牌号图片具有较高的识别精度。<br/>
 
 </p>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -387,6 +387,7 @@ plt.show()
 
 
 # Contribute
+
 [(Back to top)](#table-of-contents)
 
 <!-- This is where you can let people know how they can **contribute** to your project. Some of the ways are given below.
@@ -397,6 +398,7 @@ Also this shows how you can add subsections within a section. -->
 
 # License
 This Application is currently not licensed and is free to use by everyone.
+
 [(Back to top)](#table-of-contents)
 
 <!-- Adding the license to README is a good practice so that people can easily refer to it.
@@ -415,4 +417,4 @@ Leave a star in GitHub, give a clap in Medium and share this guide if you found 
 
 <!-- Add the footer here -->
 
-<!-- ![Footer](https://github.com/navendu-pottekkat/awesome-readme/blob/master/fooooooter.png) -->
+![Footer](https://github.com/navendu-pottekkat/awesome-readme/blob/master/fooooooter.png) 
