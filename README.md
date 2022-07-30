@@ -118,10 +118,20 @@ Province：("皖", "沪", "津", "渝", "冀", "晋", "蒙", "辽", "吉", "黑"
 </table>
 
 ## Mac os M1 安装Tensorflow
-对于Macos M1芯片无法使用Tensorflow的问题，有以下几个解决办法
-
-
-
+解决Macos M1芯片无法使用Tensorflow的问题：
+XCODE:在终端中执行以下命令
+```
+catchzeng@m1 ~ % xcode-select --install
+```
+Homebrew:在终端中执行以下命令
+```
+catchzeng@m1 ~ % /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+安装Miniforge：Anaconda 无法在 M1 上运行, Miniforge 是用来替代它的。
+从 https://github.com/conda-forge/miniforge 下载 Miniforge3-MacOSX-arm64。
+<h1 align="center">
+  <img alt="Miniforge" src="./readme photo/Miniforge.png" width="60%" height="60%"/><br/>
+</h1>
 
 [(Back to top)](#table-of-contents)
 
