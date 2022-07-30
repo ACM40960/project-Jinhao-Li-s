@@ -263,8 +263,24 @@ print(lbl)
 
 ## 3.构建CNN模型     model.py
 
+CNN网络结构：
+1. 输入层：72x272
+2. 第一层卷积：卷积核大小：3x3，卷积核个数：32，Stride 步长：1，VALID卷积
+3. 第二层卷积：卷积核大下：3x3，卷积核个数：32，Stride 步长：1，VALID卷积
+（两个卷积级联，效果就是5x5的卷积核，但是减少了参数个数）
+4. 第一层池化：池化大小：2x2，max pool,Stride 步长：2
+5. 第三层卷积：卷积核大小：3x3，卷积核个数：64，Stride 步长：1，VALID卷积
+6. 第四层卷积：卷积核大小：3x3，卷积核个数：64，Stride 步长：1，VALID卷积
+7. 第二层池化：池化大小：2x2，max pool,Stride 步长：2
+8. 第五层卷积：卷积核大小：3x3，卷积核个数：128，Stride 步长：1，VALID卷积
+9. 第六层卷积：卷积核大小：3x3，卷积核个数：128，Stride 步长：1，VALID卷积
+10. 第三层池化：池化大小：2x2，max pooling,Stride :2
+11. 第一层全连接：65个神经元，激活函数为softmax。
+
+
+
 ### 卷积层：
-本模型采用六层卷积层。根据卷积核的矩阵参数，生成去掉过大偏离点的正态分布随机数，标准差为0.1，并保存为卷积核。共有6个卷积核。
+本模型采用六层卷积层。每层所对应的filter是由去掉过大偏离点的正态分布随机数生成，标准差为0.1（也代表卷积核个数）。每一层有一个对应的filter。
 ```python
 	'conv1': tf.Variable(tf.random.truncated_normal([3, 3, 3, 32],
                                                         stddev=0.1)),
@@ -279,26 +295,27 @@ print(lbl)
         'conv6': tf.Variable(tf.random.truncated_normal([3, 3, 128, 128],
 ```
 ### 池化层：
-本模型采用三层池化层
+本模型采用三层池化层，采用Max pooling从校正后的特征图中取最大元素。池化层的存在是为了减少参数个数，避免过拟合。
 ```python
+# Layer 2 pooling layer
+    pool2 = tf.nn.max_pool2d(conv4, ksize=[1,2,2,1], strides=[1,2,2,1], padding='VALID')
+# Layer 3 pooling layer
+    pool3 = tf.nn.max_pool2d(conv6, ksize=[1,2,2,1], strides=[1,2,2,1], padding='VALID')
 ```
 ### 全连接层：
-本模型采用1层全连接层
+本模型采用1层全连接层，其中一层分为七个子连接层来分别预测车牌的七位号码。
 ```python
-	'fc1_1': tf.Variable(tf.random.truncated_normal([5*30*128, 65],
-                                                        stddev=0.01)),
-        'fc1_2': tf.Variable(tf.random.truncated_normal([5*30*128, 65],
-                                                        stddev=0.01)),
-        'fc1_3': tf.Variable(tf.random.truncated_normal([5*30*128, 65],
-                                                        stddev=0.01)),
-        'fc1_4': tf.Variable(tf.random.truncated_normal([5*30*128, 65],
-                                                        stddev=0.01)),
-        'fc1_5': tf.Variable(tf.random.truncated_normal([5*30*128, 65],
-                                                        stddev=0.01)),
-        'fc1_6': tf.Variable(tf.random.truncated_normal([5*30*128, 65],
-                                                        stddev=0.01)),
-        'fc1_7': tf.Variable(tf.random.truncated_normal([5*30*128, 65],
-                                                        stddev=0.01)),
+    reshape = tf.reshape(pool3, [-1, 5 * 30 * 128])
+    fc1 = tf.nn.dropout(reshape, keep_prob)
+    fc1_1 = tf.add(tf.matmul(fc1, W_conv['fc1_1']), b_conv['fc1_1'])
+    fc1_2 = tf.add(tf.matmul(fc1, W_conv['fc1_2']), b_conv['fc1_2'])
+    fc1_3 = tf.add(tf.matmul(fc1, W_conv['fc1_3']), b_conv['fc1_3'])
+    fc1_4 = tf.add(tf.matmul(fc1, W_conv['fc1_4']), b_conv['fc1_4'])
+    fc1_5 = tf.add(tf.matmul(fc1, W_conv['fc1_5']), b_conv['fc1_5'])
+    fc1_6 = tf.add(tf.matmul(fc1, W_conv['fc1_6']), b_conv['fc1_6'])
+    fc1_7 = tf.add(tf.matmul(fc1, W_conv['fc1_7']), b_conv['fc1_7'])
+    return fc1_1, fc1_2, fc1_3, fc1_4, fc1_5, fc1_6, fc1_7
+
 ```
 ## 4.模型训练        runmodel.ipynb
 ## 5.识别单张车牌     Testmodel.ipynb
