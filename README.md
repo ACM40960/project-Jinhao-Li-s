@@ -262,8 +262,44 @@ print(lbl)
 </h1>
 
 ## 3.构建CNN模型     model.py
-6卷积层+3池化层+1全连接层
 
+### 卷积层：
+本模型采用六层卷积层。根据卷积核的矩阵参数，生成去掉过大偏离点的正态分布随机数，标准差为0.1，并保存为卷积核。共有6个卷积核。
+```python
+	'conv1': tf.Variable(tf.random.truncated_normal([3, 3, 3, 32],
+                                                        stddev=0.1)),
+        'conv2': tf.Variable(tf.random.truncated_normal([3, 3, 32, 32],
+                                                        stddev=0.1)),
+        'conv3': tf.Variable(tf.random.truncated_normal([3, 3, 32, 64],
+                                                        stddev=0.1)),
+        'conv4': tf.Variable(tf.random.truncated_normal([3, 3, 64, 64],
+                                                        stddev=0.1)),
+        'conv5': tf.Variable(tf.random.truncated_normal([3, 3, 64, 128],
+                                                        stddev=0.1)),
+        'conv6': tf.Variable(tf.random.truncated_normal([3, 3, 128, 128],
+```
+### 池化层：
+本模型采用三层池化层
+```python
+```
+### 全连接层：
+本模型采用1层全连接层
+```python
+	'fc1_1': tf.Variable(tf.random.truncated_normal([5*30*128, 65],
+                                                        stddev=0.01)),
+        'fc1_2': tf.Variable(tf.random.truncated_normal([5*30*128, 65],
+                                                        stddev=0.01)),
+        'fc1_3': tf.Variable(tf.random.truncated_normal([5*30*128, 65],
+                                                        stddev=0.01)),
+        'fc1_4': tf.Variable(tf.random.truncated_normal([5*30*128, 65],
+                                                        stddev=0.01)),
+        'fc1_5': tf.Variable(tf.random.truncated_normal([5*30*128, 65],
+                                                        stddev=0.01)),
+        'fc1_6': tf.Variable(tf.random.truncated_normal([5*30*128, 65],
+                                                        stddev=0.01)),
+        'fc1_7': tf.Variable(tf.random.truncated_normal([5*30*128, 65],
+                                                        stddev=0.01)),
+```
 ## 4.模型训练        runmodel.ipynb
 ## 5.识别单张车牌     Testmodel.ipynb
 
