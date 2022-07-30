@@ -318,9 +318,74 @@ CNN网络结构：
 
 ```
 ## 4.模型训练        runmodel.ipynb
-
+模型训练参数介绍：
+```python
+img_h = 72 #height of img
+img_w = 272 #weight of img 
+num_label = 7 #size of label
+batch_size = 32
+epoch = 10000
+learning_rate = 0.0001
+logs_path = 'logs/1005'
+model_path = 'saved_model/1005'
+```
+模型训练完整代码：
 ## 5.识别单张车牌     Testmodel.ipynb
 
+Randomly get a single license plate image:
+```python
+def get_one_image(test):
+    n = len(test)
+    #np.random.randint（0，n）生成0-n之间的随机整数
+    rand_num =np.random.randint(0,n)
+    img_dir = test[rand_num]
+    image_show = Image.open(img_dir)
+    plt.imshow(image_show)    # display license plate image
+    image = cv.imread(img_dir)
+    #image = array(img).reshape(1, 64, 64, 3)
+    image = image.reshape(1,72, 272, 3)
+    image = np.multiply(image, 1 / 255.0)
+    return image
+```
+检查预测车牌号是否与选取的车牌号相同：
+```python
+with tf.compat.v1.Session() as sess:
+    sess.run(tf.initialize_all_variables())
+    print ("Reading checkpoint...")
+    ckpt = tf.train.get_checkpoint_state(model_path)
+    print(model_path)
+    if ckpt and ckpt.model_checkpoint_path:
+        global_step = ckpt.model_checkpoint_path.split('/')[-1].split('-')[-1]
+        saver.restore(sess, ckpt.model_checkpoint_path)
+        print('Loading success, global_step is %s' % global_step)
+    else:
+        print('No checkpoint file found')
+
+    pre1, pre2, pre3, pre4, pre5, pre6, pre7 = sess.run(
+        [logit1, logit2, logit3, logit4, logit5, logit6, logit7],
+        feed_dict={x:image_array, keep_prob:1.0})
+    prediction = np.reshape(np.array([pre1, pre2, pre3, pre4, pre5, pre6, pre7]), [-1, 65])
+
+    max_index = np.argmax(prediction, axis=1)
+    print(max_index)
+    line = ''
+    result = np.array([])
+    for i in range(prediction.shape[0]):
+        if i == 0:
+            result = np.argmax(prediction[i][0:31])
+        if i == 1:
+            #第二位为英文，序号41之后
+            result = np.argmax(prediction[i][41:65]) + 41
+        if i > 1:
+            #第三位为数字或英文，序号31之后
+            result = np.argmax(prediction[i][31:65]) + 31
+        line += chars[result]+" "
+    print ('predicted: ' + line)
+plt.show()
+```
+<h1 align="center">
+  <img alt="testone" src="./readme photo/testone.png" width="60%" height="60%"/><br/>
+</h1>
 [(Back to top)](#table-of-contents)
 
 <!-- This is the place where you give instructions to developers on how to modify the code.
@@ -351,6 +416,7 @@ Personally and by standard, you should use a [issue template](https://github.com
 You could also add contact details for people to get in touch with you regarding your project. -->
 
 # License
+This Application is currently not licensed and is free to use by everyone.
 [(Back to top)](#table-of-contents)
 
 <!-- Adding the license to README is a good practice so that people can easily refer to it.
