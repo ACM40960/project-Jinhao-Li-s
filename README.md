@@ -329,6 +329,8 @@ CNN网络结构：
 ### 池化层：
 本模型采用三层池化层，采用Max pooling从校正后的特征图中取最大元素。池化层的存在是为了减少参数个数，避免过拟合。
 ```python
+# Layer 1 pooling layer
+    pool1 = tf.nn.max_pool2d(conv2, ksize=[1,2,2,1], strides=[1,2,2,1], padding='VALID')
 # Layer 2 pooling layer
     pool2 = tf.nn.max_pool2d(conv4, ksize=[1,2,2,1], strides=[1,2,2,1], padding='VALID')
 # Layer 3 pooling layer
@@ -361,7 +363,8 @@ learning_rate = 0.0001
 logs_path = 'logs/1005'
 model_path = 'saved_model/1005'
 ```
-模型训练完整代码：
+模型训练完整代码：![runmodel.py](https://github.com/ACM40960/project-Jinhao-Li-s/edit/main/)
+
 ## 5.识别单张车牌     Testmodel.ipynb
 
 Randomly get a single license plate image:
