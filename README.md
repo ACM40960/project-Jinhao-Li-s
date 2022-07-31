@@ -63,7 +63,7 @@ Province：("皖", "沪", "津", "渝", "冀", "晋", "蒙", "辽", "吉", "黑"
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 ## python 3.9.13
-1.首先，从Python网站下载安装包。https://www.python.org/downloads/
+1.首先，从Python网站下载安装包。https://www.python.org/downloads/ </br>
 它会自动检测您的操作系统并显示一个大按钮，用于在您的 Mac 上下载最新版本的 Python 安装程序,本项目使用Python3.9.13。
 <h1 align="center">
   <img alt="python" src="./readme photo/python.png" width="60%" height="60%"/><br/>
@@ -71,7 +71,7 @@ Province：("皖", "沪", "津", "渝", "冀", "晋", "蒙", "辽", "吉", "黑"
 
 2. 下载完成后，双击包开始安装Python。安装程序将引导您完成安装，在大多数情况下，默认设置运行良好，因此请像 macOS 上的其他应用程序一样安装它。你可能还需要输入你的 Mac 密码，让它知道你同意安装 Python。
 <h1 align="center">
-  <img alt="python" src="./readme photo/inspython.png" width="30%" height="30%"/><br/>
+  <img alt="python" src="./readme photo/inspython.png" width="40%" height="40%"/><br/>
 </h1>
 
 3. 在终端中检查Python。
@@ -81,16 +81,12 @@ Province：("皖", "沪", "津", "渝", "冀", "晋", "蒙", "辽", "吉", "黑"
 
 ## Anaconda
 1.Download the graphical macOS installer for your version of Python.https://www.anaconda.com/products/distribution#macos
-<table>
-  <tr>
-    <td vlign="center">
+
+
+ <h1 align="center">
       <img src="./readme photo/pageanaconda.png" alt="pageAnaconda" width="60%" height="80%">
-    </td>
-    <td vlign="center">
-      <img src="./readme photo/anaconda.png" alt="Anaconda" width="80%" height="80%">
-    </td>
-  </tr>
-</table>
+ </h1>  
+
 
 2.Double-click the downloaded file and click Continue to start the installation.
 
@@ -98,27 +94,24 @@ Province：("皖", "沪", "津", "渝", "冀", "晋", "蒙", "辽", "吉", "黑"
 <h1 align="center">
   <img alt="insanaconda" src="./readme photo/insanaconda.png" width="40%" height="40%"/><br/>
 </h1>
-4.打开Anaconda-Navigator，选择你所需的环境，安装Jupytor notebook.
+4.打开Anaconda-Navigator，点击install安装Jupytor notebook.
 <h1 align="center">
-  <img alt="showanaconda" src="./readme photo/showanaconda.jpg" width="50%" height="50%"/><br/>
+  <img alt="screenshot" src="./readme photo/screenshot.png" width="30%" height="30%"/><br/>
 </h1>
 
 ## Jupytor notebook
-点击install安装yupyter notebook，安装完成后点击launch即可进入项目列表。
+安装完成后，选择你所需的环境，点击launch即可进入项目列表。
+<h1 align="center">
+  <img alt="showanaconda" src="./readme photo/showanaconda.jpg" width="65%" height="65%"/><br/>
+</h1>
+<h1 align="center">
+  <img alt="showpage" src="./readme photo/showpage.png" width="65%" height="65%"/><br/>
+</h1>
 
-<table>
-  <tr>
-    <td vlign="center">
-      <img src="./readme photo/screenshot.png" alt="screenshot" width="150%" height="150%">
-    </td>
-    <td vlign="center">
-      <img src="./readme photo/showpage.png" alt="showpage" width="80%" height="80%">
-    </td>
-  </tr>
-</table>
 
 ## Mac os M1 安装Tensorflow
-解决Macos M1芯片无法使用Tensorflow的问题：
+
+解决Macos M1芯片无法使用Tensorflow的问题：</br>
 XCODE:在终端中执行以下命令
 ```
 catchzeng@m1 ~ % xcode-select --install
@@ -133,6 +126,42 @@ catchzeng@m1 ~ % /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Ho
   <img alt="Miniforge" src="./readme photo/Miniforge.png" width="60%" height="60%"/><br/>
 </h1>
 
+如果你使用的是 bash，执行以下命令，安装 Miniforge
+```
+catchzeng@m1 ~ % bash Miniforge3-MacOSX-arm64.sh
+```
+```
+catchzeng@m1 ~ % zsh Miniforge3-MacOSX-arm64.sh
+```
+重启终端并检查 Python 安装情况。
+```(base) catchzeng@m1 ~ % which python
+/Users/catchzeng/miniforge3/bin/python
+(base) catchzeng@m1 ~ % which pip
+/Users/catchzeng/miniforge3/bin/pip
+```
+创建虚拟环境:创建一个 conda 创建虚拟环境 (TensorFlow 需要)
+```
+(base) catchzeng@m1 ~ % conda create -n tensorflow python=3.9.13
+(base) catchzeng@m1 ~ % conda activate tensorflow
+(tensorflow) catchzeng@m1 ~ %
+```
+安装 Tensorflow dependencies:
+```
+(tensorflow) catchzeng@m1 ~ % conda install -c apple tensorflow-deps
+```
+安装 Tensorflow:
+```
+(tensorflow) catchzeng@m1 ~ % python -m pip install tensorflow-macos
+```
+安装 metal plugin:
+```
+(tensorflow) catchzeng@m1 ~ % python -m pip install tensorflow-metal
+```
+安装必须的包:
+```
+(tensorflow) catchzeng@m1 ~ % brew install libjpeg
+(tensorflow) catchzeng@m1 ~ % conda install -y matplotlib jupyterlab
+```
 [(Back to top)](#table-of-contents)
 
 
@@ -140,26 +169,23 @@ catchzeng@m1 ~ % /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Ho
 # Project File Directory:
 ```
 └─project
-    ├─ data              ---->字体文件
-    ├─input_data.py      ---->
-    ├─genplate.py        ---->车牌数据集
-    ├─model.py
-    ├─Testmodel.ipynb
-    ├─runmodel.ipynb     ----->验证集
-    ├─logs
-    ├─copy
-    ├─readme photo
-    └─saved_model
+    ├─ data 
+    |	├─font         ---->字体文件
+    |	├─images       ---->噪声背景图片
+    |	├─NoPlates     ---->车牌背景图片
+    |	└─plate        ---->生成车牌图片
+    |        └─label.txt
+    ├─input_data.py      ---->输入车牌数据集
+    ├─genplate.py        ---->生成车牌数据集
+    ├─model.py		 ---->构建CNN模型
+    ├─Testmodel.ipynb	 ---->测试单个车牌
+    ├─runmodel.ipynb     ---->训练模型
+    ├─logs		 ---->日志文件
+    ├─copy		 ---->备份
+    ├─readme photo	
+    └─saved_model	 ---->模型文件保存
 ```
 
-```
-└─data
-    ├─font         ---->字体文件
-    ├─images       ---->噪声背景图片
-    ├─NoPlates     ---->车牌背景图片
-    └─plate        ---->生成车牌图片
-        └─label.txt
-```
 
 [(Back to top)](#table-of-contents)
 
