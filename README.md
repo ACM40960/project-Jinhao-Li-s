@@ -46,16 +46,16 @@
   <img alt="The license plate images" src="./readme photo/20191009090652976.jpg"/><br/>
 </h1>
 
-中国车牌由七个字符组成，第一个字符为中文，代表中国31个省份简称。&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+The Chinese license plate consists of seven characters, the first character is Chinese, which represents the abbreviation of 31 provinces in China.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-Province：("皖", "沪", "津", "渝", "冀", "晋", "蒙", "辽", "吉", "黑", "苏", "浙", "京", "闽", "赣", "鲁", "豫", "鄂", "湘", "粤", "桂", "琼", "川", "贵", "云", "藏", "陕", "甘", "青", "宁", "新")
+Province abbreviation:("皖", "沪", "津", "渝", "冀", "晋", "蒙", "辽", "吉", "黑", "苏", "浙", "京", "闽", "赣", "鲁", "豫", "鄂", "湘", "粤", "桂", "琼", "川", "贵", "云", "藏", "陕", "甘", "青", "宁", "新")
 
-第二个字符代表中国某省的城市代号，为24个英文字母中的一个。&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+The second character represents the city code of a province in China, which is one of the 24 English letters.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-城市代号：("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")
+City-code:("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X", "Y", "Z")
 
-后五个字符由英文字母和数字组合而成，字母是24个大写字母（除去 I 和 O）的组合，数字用＂０-９＂之间的数字表示。
-
+The last five characters are composed of English letters and numbers, the letters are 24 uppercase letters (excluding I and O), and the numbers are represented by numbers between "0-9".
 [(Back to top)](#table-of-contents)
 
 # Installation
