@@ -6,10 +6,9 @@
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <p align="center">
-本模型采用的是<b>同时</b>训练车牌中七个字符，七个字符使用<b>单独的loss函数</b>进行训练。<br/>
-对于一些非高清摄像头所拍摄的车牌图片，由于图片中<b>环境噪声和图片畸变</b>的影响，分割车牌的字符变得很难。<br/>
-本模型通过随机生成的车牌号码图片来训练CNN，使模型对模糊车牌号图片具有较高的识别精度。<br/>
-
+This model uses the <b>simultaneous training</b> of seven characters in the license plate, and the seven characters are trained using a <b>separate</b> loss function.<br/>
+For some license plate pictures captured by non-HD cameras, it becomes difficult to segment the characters of the license plate due to the influence of <b>ambient noise</b> and <b>image distortion</b> in the pictures.<br/>
+This model trains CNN through randomly generated license plate number pictures, so that the model has high recognition accuracy for fuzzy license plate number pictures.<br/>
 </p>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
@@ -63,18 +62,18 @@ The last five characters are composed of English letters and numbers, the letter
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 ## python 3.9.13
-1.首先，从Python网站下载安装包。https://www.python.org/downloads/ </br>
-它会自动检测您的操作系统并显示一个大按钮，用于在您的 Mac 上下载最新版本的 Python 安装程序,本项目使用Python3.9.13。
+1. First, download the installation package from the Python website. https://www.python.org/downloads/ </br>
+It will automatically detect your OS and display a big button to download the latest version of the Python installer on your Mac, this project uses Python 3.9.13.
 <h1 align="center">
   <img alt="python" src="./readme photo/python.png" width="60%" height="60%"/><br/>
 </h1>
 
-2. 下载完成后，双击包开始安装Python。安装程序将引导您完成安装，在大多数情况下，默认设置运行良好，因此请像 macOS 上的其他应用程序一样安装它。你可能还需要输入你的 Mac 密码，让它知道你同意安装 Python。
+2. Once the download is complete, double-click the package to start installing Python. The installer will walk you through the installation, and in most cases the default settings work fine, so install it like any other application on macOS. You may also need to enter your Mac password to let it know that you agree to install Python.
 <h1 align="center">
   <img alt="python" src="./readme photo/inspython.png" width="40%" height="40%"/><br/>
 </h1>
 
-3. 在终端中检查Python。
+3. View Python in a terminal.
 <h1 align="center">
   <img alt="python" src="./readme photo/verpython.png" width="60%" height="60%"/><br/>
 </h1>
@@ -90,17 +89,18 @@ The last five characters are composed of English letters and numbers, the letter
 
 2.Double-click the downloaded file and click Continue to start the installation.
 
-3.安装成功界面
+3.Installation success interface
 <h1 align="center">
   <img alt="insanaconda" src="./readme photo/insanaconda.png" width="40%" height="40%"/><br/>
 </h1>
-4.打开Anaconda-Navigator，点击install安装Jupytor notebook.
+
+4.Open Anaconda-Navigator and click ’install‘ to install Jupyter notebook.
 <h1 align="center">
   <img alt="screenshot" src="./readme photo/screenshot.png" width="30%" height="30%"/><br/>
 </h1>
 
 ## Jupytor notebook
-安装完成后，选择你所需的环境，点击launch即可进入项目列表。
+After the installation is complete, select the environment you need and click launch to enter the project list.
 <h1 align="center">
   <img alt="showanaconda" src="./readme photo/showanaconda.jpg" width="65%" height="65%"/><br/>
 </h1>
