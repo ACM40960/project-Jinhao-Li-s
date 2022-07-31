@@ -109,55 +109,55 @@ After the installation is complete, select the environment you need and click la
 </h1>
 
 
-## Mac os M1 安装Tensorflow
+## Mac os M1 install Tensorflow
 
-解决Macos M1芯片无法使用Tensorflow的问题：</br>
-XCODE:在终端中执行以下命令
+Solve the problem that the Macos M1 cannot use Tensorflow:</br>
+XCODE: Execute the following command in terminal
 ```
 catchzeng@m1 ~ % xcode-select --install
 ```
-Homebrew:在终端中执行以下命令
+Homebrew: Execute the following command in the terminal
 ```
 catchzeng@m1 ~ % /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
-安装Miniforge：Anaconda 无法在 M1 上运行, Miniforge 是用来替代它的。
-从 https://github.com/conda-forge/miniforge 下载 Miniforge3-MacOSX-arm64。
+Miniforge: Anaconda cannot run on M1, Miniforge is used to replace it.Download Miniforge3-MacOSX-arm64 from https://github.com/conda-forge/miniforge.
 <h1 align="center">
   <img alt="Miniforge" src="./readme photo/Miniforge.png" width="60%" height="60%"/><br/>
 </h1>
 
-如果你使用的是 bash，执行以下命令，安装 Miniforge
+If you are using bash, execute the following command to install Miniforge
 ```
 catchzeng@m1 ~ % bash Miniforge3-MacOSX-arm64.sh
 ```
+If you are using zsh, execute the following command to install Miniforge
 ```
 catchzeng@m1 ~ % zsh Miniforge3-MacOSX-arm64.sh
 ```
-重启终端并检查 Python 安装情况。
+Restart the terminal and check the Python installation.
 ```(base) catchzeng@m1 ~ % which python
 /Users/catchzeng/miniforge3/bin/python
 (base) catchzeng@m1 ~ % which pip
 /Users/catchzeng/miniforge3/bin/pip
 ```
-创建虚拟环境:创建一个 conda 创建虚拟环境 (TensorFlow 需要)
+Create a virtual environment: create a conda to create a virtual environment (required by TensorFlow)
 ```
 (base) catchzeng@m1 ~ % conda create -n tensorflow python=3.9.13
 (base) catchzeng@m1 ~ % conda activate tensorflow
 (tensorflow) catchzeng@m1 ~ %
 ```
-安装 Tensorflow dependencies:
+Install Tensorflow dependencies:
 ```
 (tensorflow) catchzeng@m1 ~ % conda install -c apple tensorflow-deps
 ```
-安装 Tensorflow:
+Install Tensorflow:
 ```
 (tensorflow) catchzeng@m1 ~ % python -m pip install tensorflow-macos
 ```
-安装 metal plugin:
+Install the metal plugin:
 ```
 (tensorflow) catchzeng@m1 ~ % python -m pip install tensorflow-metal
 ```
-安装必须的包:
+Install the required packages:
 ```
 (tensorflow) catchzeng@m1 ~ % brew install libjpeg
 (tensorflow) catchzeng@m1 ~ % conda install -y matplotlib jupyterlab
@@ -170,20 +170,19 @@ catchzeng@m1 ~ % zsh Miniforge3-MacOSX-arm64.sh
 ```
 └─project
     ├─ data 
-    |	├─font         ---->字体文件
-    |	├─images       ---->噪声背景图片
-    |	├─NoPlates     ---->车牌背景图片
-    |	└─plate        ---->生成车牌图片
+    |	├─font         ---->font file
+    |	├─images       ---->background image
+    |	├─NoPlates     ---->plate background image
+    |	└─plate        ---->plate image
     |        └─label.txt
-    ├─input_data.py      ---->输入车牌数据集
-    ├─genplate.py        ---->生成车牌数据集
-    ├─model.py		 ---->构建CNN模型
-    ├─Testmodel.ipynb	 ---->测试单个车牌
-    ├─runmodel.ipynb     ---->训练模型
-    ├─logs		 ---->日志文件
-    ├─copy		 ---->备份
+    ├─input_data.py      ---->input license plate data
+    ├─genplate.py        ---->Generate a license plate dataset
+    ├─model.py		 ---->Building CNN model
+    ├─Testmodel.ipynb	 ---->Test one license plates
+    ├─runmodel.ipynb     ---->Training model
+    ├─logs		 ---->The log file
     ├─readme photo	
-    └─saved_model	 ---->模型文件保存
+    └─saved_model	 ---->Save the model file (too large to upload, automatically generated when running runModel.ipynb)
 ```
 
 
@@ -201,9 +200,9 @@ catchzeng@m1 ~ % zsh Miniforge3-MacOSX-arm64.sh
 	+ tensorflow-macos (2.9.2)
 	+ tensorflow-estimator (2.9.0)
   
-## 1.生成车牌数据集   genplate.py
+## 1.Generate license plate dataset   genplate.py
 <p >
-生成车牌所需文件：<br/>
+Documents required to generate license plates：<br/>
 <b>Font file:</b> Chinese 'Platech.ttf', English and digital 'Platechar.ttf'. <br/>
 <b>Background:</b> file 'NoPlates'. Which from a cropped image of a vehicle without a license plate. <br/>
 <b>License plate (blue background) :</b> template.bmp. <br/>
@@ -213,7 +212,7 @@ catchzeng@m1 ~ % zsh Miniforge3-MacOSX-arm64.sh
 
 Through the Python third-party library PIL Image, ImageFont, ImageDraw module, use the font file in the font file to randomly generate the license plate number, and add it to the license plate background in the images folder.<br/>
 
-加载字体，车牌背景和噪声图片
+Load fonts, license plate backgrounds and noise images.
 ```python	
 class GenPlate:
     def __init__(self, fontCh, fontEng, NoPlates):
@@ -231,7 +230,7 @@ class GenPlate:
                 path = parent + "/" + filename
                 self.noplates_path.append(path)	
 ```
-随机生成车牌号（包括第一位汉字位，第二位字母位，和剩余5位）
+Randomly generate the license plate number (including the first Chinese character, the second letter character, and the remaining 5 characters).
 ```python
 	#Generate license plate numbers
     def draw(self, val):
@@ -246,7 +245,7 @@ class GenPlate:
             self.img[0:70, base:base+23] = GenCh1(self.fontE, val[i+2])
         return self.img
 ```
-对生成的车牌号图片添加噪声（包括畸变和各种噪声）来模拟实际情况中的车牌截图。
+Add noise (including distortion and various noises) to the generated license plate number image to simulate the license plate screenshot in the actual situation.
 ```python	
 def generate(self, text):
         if len(text) == 7:
@@ -269,7 +268,7 @@ def generate(self, text):
             return com
 ```	
 
-生成的车牌图像尺寸选取：272 * 72<br/>
+The size of the generated license plate image is selected: 272 * 72.<br/>
 
 <b>After the license plate is generated, save it to the 'plate' folder as shown in the following example:</b>
 <h1 align="center">
@@ -279,8 +278,8 @@ def generate(self, text):
 
 
 
-## 2.数据集导入      input_data.py
-测试产生的车牌图片和标签
+## 2.Dataset import      input_data.py
+Test the resulting license plate images and labels.
 ```python
 O = OCRIter(2, 72, 272)
 img, lbl = O.iter()
@@ -293,7 +292,7 @@ print(lbl)
   <img alt="inputtest" src="./readme photo/inputtest.png" width="60%" height="60%"/><br/>
 </h1>
 
-## 3.构建CNN模型     model.py
+## 3.Build a CNN model    model.py
 
 CNN network structure：
 1.Input layer: 72x272
@@ -391,8 +390,8 @@ def calc_loss(logit1, logit2, logit3, logit4, logit5, logit6, logit7, labels):
 
     return loss1, loss2, loss3, loss4, loss5, loss6, loss7
 ```
-## 4.模型训练        runmodel.ipynb
-模型训练参数介绍：
+## 4.model training       runmodel.ipynb
+Model training parameters introduction:
 ```python
 img_h = 72 #height of img
 img_w = 272 #weight of img 
@@ -459,7 +458,7 @@ with tf.compat.v1.Session() as sess:
 ```
 模型训练完整代码：![runmodel.py](https://github.com/ACM40960/project-Jinhao-Li-s/edit/main/)
 
-## 5.识别单张车牌     Testmodel.ipynb
+## 5.Identify a single license plate     Testmodel.ipynb
 
 Randomly get a single license plate image:
 ```python
@@ -476,7 +475,7 @@ def get_one_image(test):
     image = np.multiply(image, 1 / 255.0)
     return image
 ```
-检查预测车牌号是否与选取的车牌号相同：
+Check if the predicted license plate number is the same as the selected license plate number:
 ```python
 with tf.compat.v1.Session() as sess:
     sess.run(tf.initialize_all_variables())
@@ -503,10 +502,10 @@ with tf.compat.v1.Session() as sess:
         if i == 0:
             result = np.argmax(prediction[i][0:31])
         if i == 1:
-            #第二位为英文，序号41之后
+            #The second digit is in English, after the serial number 41
             result = np.argmax(prediction[i][41:65]) + 41
         if i > 1:
-            #第三位为数字或英文，序号31之后
+            #The third digit is a number or English, after the serial number 31
             result = np.argmax(prediction[i][31:65]) + 31
         line += chars[result]+" "
     print ('predicted: ' + line)
@@ -515,7 +514,7 @@ plt.show()
 <h1 align="center">
   <img alt="testone" src="./readme photo/testone.png" width="60%" height="60%"/><br/>
 </h1>
-在tensorboard中查看训练过程，accuracy曲线在epoch = 10000左右时达到收敛，最终精确度在94%左右，loss1为汉字字符，识别相对字母数字较难，loss1=0.03左右
+Looking at the training process in tensorboard, the accuracy curve reaches convergence at about epoch = 10000, the final accuracy is about 94%, loss1 is Chinese characters, and it is difficult to identify relative alphanumerics,around loss1=0.03.
 <h1 align="center">
   <img alt="accuracy" src="./readme photo/accuracy.png" width="60%" height="60%"/><br/>
 </h1>
