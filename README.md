@@ -207,7 +207,7 @@ Documents required to generate license plates：<br/>
 <b>Background:</b> file 'NoPlates'. Which from a cropped image of a vehicle without a license plate. <br/>
 <b>License plate (blue background) :</b> template.bmp. <br/>
 <b>The noise of image：</b>smu2.jpg. <br/>
-
+<b>data file link:</b>https://drive.google.com/drive/folders/12YlRszYvpdxKXZirxzgT0AKGzBse6KGK?usp=sharing<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 Through the Python third-party library PIL Image, ImageFont, ImageDraw module, use the font file in the font file to randomly generate the license plate number, and add it to the license plate background in the images folder.<br/>
@@ -456,7 +456,6 @@ with tf.compat.v1.Session() as sess:
     end_time = time.time()
     print("Training over. It costs {:.2f} minutes".format((end_time - start_time1) / 60))
 ```
-模型训练完整代码：![runmodel.py](https://github.com/ACM40960/project-Jinhao-Li-s/edit/main/)
 
 ## 5.Identify a single license plate     Testmodel.ipynb
 
