@@ -418,6 +418,13 @@ plt.show()
 <h1 align="center">
   <img alt="testone" src="./readme photo/testone.png" width="60%" height="60%"/><br/>
 </h1>
+在tensorboard中查看训练过程，accuracy曲线在epoch = 10000左右时达到收敛，最终精确度在94%左右，loss1为汉字字符，识别相对字母数字较难，loss1=0.03左右
+<h1 align="center">
+  <img alt="accuracy" src="./readme photo/accuracy.png" width="60%" height="60%"/><br/>
+</h1>
+<h1 align="center">
+  <img alt="loss1.png" src="./readme photo/loss1.png" width="60%" height="60%"/><br/>
+</h1>
 
 [(Back to top)](#table-of-contents)
 
@@ -445,12 +452,4 @@ I personally add the name of the license and provide a link to it like below. --
 
 # Footer
 [(Back to top)](#table-of-contents)
-
-<!-- Let's also add a footer because I love footers and also you **can** use this to convey important info.
-Let's make it an image because by now you have realised that multimedia in images == cool(*please notice the subtle programming joke). -->
-
-Leave a star in GitHub, give a clap in Medium and share this guide if you found this helpful.
-
-<!-- Add the footer here -->
-
 ![Footer](https://github.com/navendu-pottekkat/awesome-readme/blob/master/fooooooter.png) 
